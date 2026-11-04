@@ -1,0 +1,214 @@
+{
+  "businesses": [
+    {
+      "companyOverview": {
+        "descriptionAr": "متجر متخصص في الملابس الرجالي",
+        "descriptionEn": ""
+      },
+      "industry": "ملابس رجالي",
+      "contactInfo": {
+        "supportEmail": "support@nexora-coffee.example",
+        "whatsappNumber": "+966500000000",
+        "website": "https://nexora-coffee.example"
+      },
+      "workingHours": {
+        "scheduleAr": "من الأحد إلى الخميس: 9:00 صباحاً حتى 10:00 مساءً. الجمعة والسبت: 2:00 ظهراً حتى 10:00 مساءً."
+      },
+      "deliveryPolicy": {
+        "detailsAr": "الشحن داخل الرياض خلال 24-48 ساعة عمل بتكلفة 19، وباقي مدن المملكة خلال 2-4 أيام عمل بتكلفة 28. الشحن مجاني للطلبات فوق 299."
+      },
+      "returnPolicy": {
+        "detailsAr": "يمكن استرجاع أو استبدال المنتج خلال 14 يوماً من تاريخ الاستلام بشرط أن يكون في حالته الأصلية وغير مستخدم مع كامل تغليفه."
+      },
+      "paymentMethods": [
+        "مدى (Mada)",
+        "Apple Pay",
+        "بطاقات فيزا وماستركارد (Visa / Mastercard)",
+        "تابي وتمارا للتقسيط بدون فوائد (Tabby & Tamara)"
+      ],
+      "products": [
+        {
+          "id": "PRD-01",
+          "nameAr": "تيشيرت بيسك اسود",
+          "nameEn": "Nexora Pro Specialty Coffee Grinder (Electric)",
+          "price": 800,
+          "inStock": true,
+          "featuresAr": "مريح وواسع وشكله جميل",
+          "featuresEn": "Cordless electric grinder with stainless steel burrs, 40 grind settings for espresso and pour-over, 2-week battery life.",
+          "description": "",
+          "imageUrl": ""
+        }
+      ],
+      "services": [
+        {
+          "id": "SRV-COFFEE-1",
+          "nameAr": "برمجة ومعايرة درجة الطحن قبل الشحن",
+          "nameEn": "Pre-shipping Grind Calibration Service",
+          "price": 0,
+          "detailsAr": "خدمة مجانية لضبط المطحنة على درجة الطحن المناسبة لمشروبك المفضل (إسبريسو أو V60) قبل إرسالها لك.",
+          "detailsEn": ""
+        }
+      ],
+      "offers": [
+        {
+          "id": "OFF-COFFEE-1",
+          "titleAr": "عرض 2 تيشيرت",
+          "titleEn": "Home Barista Bundle (Nexora Pro Grinder + Smart Kettle)",
+          "price": 699,
+          "detailsAr": "عرض لفترة محدودة",
+          "detailsEn": "",
+          "discount": "",
+          "isActive": true
+        }
+      ],
+      "faqs": [
+        {
+          "questionAr": "هل يوجد لديكم فرع للاستلام المباشر؟",
+          "answerAr": "حالياً نحن متجر إلكتروني فقط ولا يوجد فرع للاستلام المباشر، ونوصل لجميع المناطق.",
+          "questionEn": "Do you have a physical store for pickup?",
+          "answerEn": "Currently we operate exclusively online with delivery to all regions; we do not have a physical pickup branch."
+        },
+        {
+          "questionAr": "كم مدة الضمان على الأجهزة؟",
+          "answerAr": "جميع الأجهزة الكهربائية مشمولة بضمان سنتين ضد عيوب الصناعة.",
+          "questionEn": "What is the warranty period on devices?",
+          "answerEn": "All electronic devices come with a 2-year warranty against manufacturing defects."
+        },
+        {
+          "questionAr": "كيف أقدر أطلب؟",
+          "answerAr": "تقدر تطلب مباشرة عن طريق موقعنا الإلكتروني https://nexora-coffee.example أو تتواصل معنا على الواتساب +966500000000 ونكمل لك الطلب.",
+          "questionEn": "How can I place an order?",
+          "answerEn": "You can order directly through our website https://nexora-coffee.example or message us on WhatsApp at +966500000000."
+        }
+      ],
+      "business_id": "nexora-coffee-sa",
+      "name": "متجر نواف للملابس",
+      "country": "SA",
+      "currency": "SAR",
+      "timezone": "Asia/Riyadh",
+      "dialect": "saudi",
+      "languagePreference": "auto",
+      "tone": "polite_professional_gulf"
+    },
+    {
+      "companyOverview": {
+        "descriptionAr": "دار الوادي للعطور والعود علامة سعودية متخصصة في العطور الشرقية الفاخرة، دهن العود الطبيعي، وخشب العود الموروكي للمناسبات والإهداء.",
+        "descriptionEn": "Al-Wadi Oud & Perfumes is a Saudi luxury fragrance house specializing in oriental perfumes, natural oud oil, and Moroqi oud wood."
+      },
+      "industry": "العطور الشرقية والعود والبخور الفاخر (Luxury Perfumes & Oud)",
+      "contactInfo": {
+        "supportEmail": "care@alwadi-oud.example",
+        "whatsappNumber": "+966511111111",
+        "website": "https://alwadi-oud.example"
+      },
+      "workingHours": {
+        "scheduleAr": "يومياً من الساعة 10:00 صباحاً حتى 11:00 مساءً.",
+        "scheduleEn": "Daily from 10:00 AM to 11:00 PM."
+      },
+      "deliveryPolicy": {
+        "detailsAr": "توصيل سريع داخل جدة والرياض خلال 24 ساعة بتكلفة 25، وباقي مدن المملكة خلال 2-3 أيام عمل بتكلفة 30. التوصيل مجاني للطلبات فوق 399.",
+        "detailsEn": "Express delivery in Jeddah and Riyadh within 24 hours (cost: 25). Other Saudi cities in 2-3 business days (cost: 30). Free delivery on orders over 399."
+      },
+      "returnPolicy": {
+        "detailsAr": "يأتي مع كل عطر عينة تجريبية مجانية؛ يمكنك تجربة العينة واسترجاع العطر الأساسي خلال 7 أيام طالما لم يتم فتح سيلوفان العلبة الأصلية.",
+        "detailsEn": "Every perfume includes a free sample vial; you may try the sample and return the main bottle within 7 days if the original cellophane seal is unopened."
+      },
+      "paymentMethods": [
+        "مدى (Mada)",
+        "Apple Pay",
+        "تابي وتمارا للتقسيط على 4 دفعات (Tabby & Tamara)",
+        "الدفع عند الاستلام داخل الرياض وجدة (Cash on Delivery)"
+      ],
+      "products": [
+        {
+          "id": "OUD-01",
+          "nameAr": "عطر عود الوادي الملكي (100 مل)",
+          "nameEn": "Royal Wadi Oud Eau de Parfum (100ml)",
+          "price": 290,
+          "inStock": true,
+          "featuresAr": "عطر رسمي فخم يجمع بين العود الكمبودي والزعفران والعنبر، ثبات يتجاوز 24 ساعة على الملابس، مناسب للمناسبات والشتاء.",
+          "featuresEn": "Rich formal fragrance blending Cambodian oud, saffron, and amber with 24+ hour longevity.",
+          "description": "",
+          "imageUrl": ""
+        },
+        {
+          "id": "OUD-02",
+          "nameAr": "عطر مسك السحاب اليومي (100 مل)",
+          "nameEn": "Sahab Musk Daily Perfume (100ml)",
+          "price": 175,
+          "inStock": true,
+          "featuresAr": "عطر هادئ ومنعش بمزيج المسك الأبيض والبرغموت والورد الطائفي، مناسب للدوام والاستخدام اليومي الصباحي وسعره مناسب جداً.",
+          "featuresEn": "Fresh, clean white musk blended with bergamot and Taif rose, ideal for office and daily wear.",
+          "description": "",
+          "imageUrl": ""
+        },
+        {
+          "id": "OUD-03",
+          "nameAr": "أوقية عود موروكي طبيعي محسن فاخر (28 جرام)",
+          "nameEn": "Luxury Moroqi Oud Wood Ounce (28g)",
+          "price": 280,
+          "inStock": true,
+          "featuresAr": "كسرات عود موروكي كثيفة الدهن، دخانها بارد ورائحتها تثبت في المجالس والثياب لفترة طويلة.",
+          "featuresEn": "Resin-rich Moroqi oud chips ideal for hospitality and home incense.",
+          "description": "",
+          "imageUrl": ""
+        },
+        {
+          "id": "OUD-04",
+          "nameAr": "ربع تولة دهن عود كمبودي معتق",
+          "nameEn": "Aged Cambodian Oud Oil (Quarter Tola)",
+          "price": 360,
+          "inStock": false,
+          "featuresAr": "دهن عود صافي غير مخلوط، ثبات وفوحان عالي جداً.",
+          "featuresEn": "Pure aged Cambodian oud oil with intense projection.",
+          "description": "",
+          "imageUrl": ""
+        }
+      ],
+      "services": [
+        {
+          "id": "SRV-OUD-1",
+          "nameAr": "تغليف هدايا فاخر مع بطاقة إهداء مخصصة",
+          "nameEn": "Luxury Gift Wrapping & Custom Greeting Card",
+          "price": 35,
+          "detailsAr": "تغليف مخملي فاخر مع كتابة عبارتك الخاصة على كرت الإهداء وتنسيقها بالشبر الذهبي.",
+          "detailsEn": ""
+        }
+      ],
+      "offers": [
+        {
+          "id": "OFF-OUD-1",
+          "titleAr": "مجموعة الإهداء الملكية (عطر عود الوادي + أوقية عود موروكي)",
+          "titleEn": "Royal Gift Set (Wadi Oud Perfume + Moroqi Oud Ounce)",
+          "price": 490,
+          "detailsAr": "سعر خاص 490 ر.س بدلاً من 570 ر.س مع صندوق إهداء جلدي فاخر وشحن مجاني.",
+          "detailsEn": "",
+          "discount": "",
+          "isActive": true
+        }
+      ],
+      "faqs": [
+        {
+          "questionAr": "هل العطور أصلية وعليها ضمان ثبات؟",
+          "answerAr": "نعم، جميع عطورنا أصلية ومصرحة من هيئة الغذاء والدواء، ونرسل مع كل عطر عينة مجانية للتجربة قبل فتح العلبة.",
+          "questionEn": "Are the perfumes authentic and guaranteed?",
+          "answerEn": "Yes, all our perfumes are SFDA-registered and include a free test sample so you can try before opening the sealed box."
+        },
+        {
+          "questionAr": "كيف أطلب من دار الوادي؟",
+          "answerAr": "تقدر تطلب مباشرة من موقعنا https://alwadi-oud.example أو تراسلنا واتساب على +966511111111.",
+          "questionEn": "How do I order from Al-Wadi?",
+          "answerEn": "Order directly via https://alwadi-oud.example or message us on WhatsApp at +966511111111."
+        }
+      ],
+      "business_id": "alwadi-perfumes-sa",
+      "name": "دار الوادي للعطور والعود (Al-Wadi Oud & Perfumes)",
+      "country": "SA",
+      "currency": "SAR",
+      "timezone": "Asia/Riyadh",
+      "dialect": "saudi",
+      "languagePreference": "auto",
+      "tone": "polite_professional_gulf"
+    }
+  ]
+}

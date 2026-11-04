@@ -1,0 +1,87 @@
+{
+  "companyOverview": {
+    "descriptionAr": "متجر نيكسورا الخليج هو متجر إلكتروني متخصص في الأجهزة الذكية وإكسسوارات القهوة المختصة في المملكة العربية السعودية ودول الخليج.",
+    "descriptionEn": "Nexora Gulf Store is an online store specializing in smart devices and specialty coffee accessories across Saudi Arabia and the GCC."
+  },
+  "contactInfo": {
+    "supportEmail": "support@nexora-gulf.example",
+    "whatsappNumber": "+966500000000",
+    "website": "https://nexora-gulf.example"
+  },
+  "workingHours": {
+    "scheduleAr": "من الأحد إلى الخميس، من الساعة 9:00 صباحاً حتى 10:00 مساءً. الجمعة والسبت: من 2:00 ظهراً حتى 10:00 مساءً.",
+    "scheduleEn": "Sunday to Thursday: 9:00 AM to 10:00 PM. Friday and Saturday: 2:00 PM to 10:00 PM."
+  },
+  "shippingPolicy": {
+    "detailsAr": "الشحن داخل الرياض خلال 24-48 ساعة عمل بتكلفة 19، وباقي مدن المملكة خلال 2-4 أيام عمل بتكلفة 28. الشحن مجاني للطلبات فوق 299.",
+    "detailsEn": "Delivery within Riyadh takes 24-48 business hours (cost: 19). Other Saudi cities take 2-4 business days (cost: 28). Free shipping on orders over 299."
+  },
+  "returnPolicy": {
+    "detailsAr": "يمكن استرجاع أو استبدال المنتج خلال 14 يوماً من تاريخ الاستلام بشرط أن يكون في حالته الأصلية وغير مستخدم مع كامل تغليفه.",
+    "detailsEn": "Products can be returned or exchanged within 14 days of delivery, provided they are unused and in their original sealed packaging."
+  },
+  "paymentMethods": [
+    "مدى (Mada)",
+    "Apple Pay",
+    "بطاقات فيزا وماستركارد (Visa / Mastercard)",
+    "تابي وتمارا للتقسيط بدون فوائد (Tabby & Tamara)"
+  ],
+  "products": [
+    {
+      "id": "PRD-01",
+      "nameAr": "مطحنة قهوة مختصة احترافية نيكسورا برو (كهربائية)",
+      "nameEn": "Nexora Pro Specialty Coffee Grinder (Electric)",
+      "price": 450,
+      "inStock": true,
+      "featuresAr": "مطحنة كهربائية لاسلكية بتروس ستانلس ستيل، 40 درجة طحن تناسب الإسبريسو والقهوة المقطرة، بطارية تدوم لأسبوعين، وتريحك من الطحن اليدوي.",
+      "featuresEn": "Cordless electric grinder with stainless steel burrs, 40 grind settings for espresso and pour-over, 2-week battery life."
+    },
+    {
+      "id": "PRD-04",
+      "nameAr": "مطحنة قهوة يدوية نيكسورا كلاسيك",
+      "nameEn": "Nexora Classic Manual Coffee Grinder",
+      "price": 185,
+      "inStock": true,
+      "featuresAr": "مطحنة يدوية خفيفة وعملية للسفر والمكتب، تروس ستانلس ستيل، مناسبة للقهوة المقطرة والفرنش برس، خيار اقتصادي ممتاز.",
+      "featuresEn": "Compact manual grinder ideal for travel and office, stainless steel burrs, great budget-friendly option for pour-over and French press."
+    },
+    {
+      "id": "PRD-02",
+      "nameAr": "غلاية ترشيح ذكية مع تحكم بالحرارة",
+      "nameEn": "Smart Gooseneck Kettle with Temperature Control",
+      "price": 320,
+      "inStock": true,
+      "featuresAr": "سعة 800 مل، شاشة رقمية لتحديد الحرارة بالدرجة، تثبيت درجة الحرارة لمدة ساعة، مثالية للقهوة المقطرة V60.",
+      "featuresEn": "800ml capacity, digital display for exact temperature control, 1-hour temperature hold, ideal for V60 pour-over."
+    },
+    {
+      "id": "PRD-03",
+      "nameAr": "ميزان قهوة رقمي بمؤقت ذكي",
+      "nameEn": "Digital Coffee Scale with Smart Timer",
+      "price": 145,
+      "inStock": false,
+      "featuresAr": "دقة 0.1 جرام، مقاوم للماء، شحن USB-C.",
+      "featuresEn": "0.1g precision, water-resistant, USB-C rechargeable."
+    }
+  ],
+  "faqs": [
+    {
+      "questionAr": "هل يوجد لديكم فرع للاستلام المباشر؟",
+      "answerAr": "حالياً نحن متجر إلكتروني فقط ولا يوجد فرع للاستلام المباشر، ونوصل لجميع المناطق.",
+      "questionEn": "Do you have a physical store for pickup?",
+      "answerEn": "Currently we operate exclusively online with delivery to all regions; we do not have a physical pickup branch."
+    },
+    {
+      "questionAr": "كم مدة الضمان على الأجهزة؟",
+      "answerAr": "جميع الأجهزة الكهربائية مشمولة بضمان سنتين ضد عيوب الصناعة.",
+      "questionEn": "What is the warranty period on devices?",
+      "answerEn": "All electronic devices come with a 2-year warranty against manufacturing defects."
+    },
+    {
+      "questionAr": "كيف أقدر أطلب؟",
+      "answerAr": "تقدر تطلب مباشرة عن طريق موقعنا الإلكتروني https://nexora-gulf.example أو تتواصل معنا على الواتساب +966500000000 ونكمل لك الطلب.",
+      "questionEn": "How can I place an order?",
+      "answerEn": "You can order directly through our website https://nexora-gulf.example or message us on WhatsApp at +966500000000."
+    }
+  ]
+}

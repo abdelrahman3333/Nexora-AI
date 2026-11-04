@@ -1,0 +1,19 @@
+{
+  "bots": [
+    {
+      "bot_id": "bot-nexora-coffee",
+      "business_id": "nexora-coffee-sa",
+      "bot_username": "NexoraaSupportBot",
+      "token_env_var": "TELEGRAM_BOT_TOKEN",
+      "status": "active"
+    },
+    {
+      "bot_id": "bot-alwadi-perfumes",
+      "business_id": "alwadi-perfumes-sa",
+      "bot_username": "AlWadiPerfumesBot",
+      "token_env_var": "TELEGRAM_BOT_TOKEN_ALWADI",
+      "status": "inactive"
+    }
+  ]
+}
+

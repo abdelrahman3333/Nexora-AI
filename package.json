@@ -1,0 +1,28 @@
+{
+  "name": "nexora-ai-telegram-support-bot",
+  "version": "1.0.0",
+  "description": "Nexora AI — Production-Minded GCC-Localized Telegram Customer Support Bot",
+  "type": "module",
+  "main": "src/app.js",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "node --watch src/app.js",
+    "seed:user": "node src/auth/seedAdmin.js",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@google/genai": "^2.32.0",
+    "dotenv": "^18.0.9",
+    "grammy": "^1.46.0",
+    "pino": "^10.4.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "vitest": "^5.1.0"
+  }
+}
+

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nexora AI — لوحة تحكم التاجر ومساعد المبيعات الذكي</title>
+  <link rel="stylesheet" href="/css/style.css?v=2.1">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22><text y=%2222%22 font-size=%2222%22>✨</text></svg>">
+</head>
+<body>
+  <div id="app">
+    <!-- Rendered dynamically by public/js/app.js -->
+    <div class="auth-wrapper">
+      <div style="text-align: center; color: var(--text-muted);">
+        <span class="spinner" style="width: 2rem; height: 2rem; border-width: 3px; margin-bottom: 1rem;"></span>
+        <div>جاري تحميل لوحة تحكم Nexora AI...</div>
+        <!-- Shown only if app.js never runs (e.g. page opened as file:// instead of via the server). Pure HTML/CSS, no JS. -->
+        <div class="nx-load-hint" style="opacity: 0; animation: nx-show-hint 0s linear 6s forwards; margin-top: 1rem; font-size: 0.9rem; line-height: 1.7;">
+          لم يكتمل التحميل؟ تأكد من تشغيل الخادم (<code>npm start</code>) وفتح اللوحة عبر
+          <a href="http://localhost:3000" dir="ltr">http://localhost:3000</a>
+          وليس بفتح ملف index.html مباشرةً.
+        </div>
+        <style>@keyframes nx-show-hint { to { opacity: 1; } }</style>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/app.js?v=2.1"></script>
+</body>
+</html>
+
