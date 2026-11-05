@@ -13,6 +13,8 @@ import { SupportService } from './services/supportService.js';
 import { createTelegramBot } from './telegram/bot.js';
 import { TelegramBotManager } from './telegram/botManager.js';
 import { createLogger } from './utils/logger.js';
+import { WhatsAppClient } from './whatsapp/whatsappClient.js';
+import { WhatsAppWebhookHandler } from './whatsapp/webhookHandler.js';
 
 /**
  * Assembles the full Nexora AI central multi-bot & REST API application dependency graph
@@ -104,11 +106,27 @@ export function buildApplication(rawEnv = process.env) {
     log,
   });
 
+  const whatsappClient = new WhatsAppClient({
+    accessToken: env.WHATSAPP_ACCESS_TOKEN,
+    phoneNumberId: env.WHATSAPP_PHONE_NUMBER_ID,
+    log,
+  });
+
+  const whatsappWebhookHandler = new WhatsAppWebhookHandler({
+    verifyToken: env.WHATSAPP_VERIFY_TOKEN,
+    appSecret: env.META_APP_SECRET,
+    supportService,
+    whatsappClient,
+    defaultBusinessId,
+    log,
+  });
+
   const apiServer = createApiServer({
     authStore,
     businessStore,
     botRegistry,
     usageStore,
+    whatsappWebhookHandler,
     isProduction: env.NODE_ENV === 'production',
     log,
   });
@@ -139,6 +157,8 @@ export function buildApplication(rawEnv = process.env) {
     rateLimiter,
     aiProvider,
     supportService,
+    whatsappClient,
+    whatsappWebhookHandler,
     bot,
   };
 }

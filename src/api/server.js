@@ -144,6 +144,41 @@ async function readJsonBody(req) {
   });
 }
 
+/**
+ * Reads the raw Buffer payload from an incoming HTTP request.
+ * Required for cryptographic signature verification (HMAC).
+ *
+ * @param {import('node:http').IncomingMessage} req
+ * @returns {Promise<Buffer>}
+ */
+async function readRawBody(req) {
+  return new Promise((resolve, reject) => {
+    let totalBytes = 0;
+    const chunks = [];
+
+    req.on('data', (chunk) => {
+      totalBytes += chunk.length;
+      if (totalBytes > MAX_BODY_BYTES) {
+        req.destroy();
+        reject(
+          new ValidationError(
+            'Request payload is too large.',
+            'PAYLOAD_TOO_LARGE'
+          )
+        );
+        return;
+      }
+      chunks.push(chunk);
+    });
+
+    req.on('end', () => {
+      resolve(Buffer.concat(chunks));
+    });
+
+    req.on('error', (err) => reject(err));
+  });
+}
+
 export const SECURITY_HEADERS = Object.freeze({
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'DENY',
@@ -260,6 +295,7 @@ export function createApiServer({
   businessStore,
   botRegistry = null,
   usageStore = null,
+  whatsappWebhookHandler = null,
   loginRateLimiter = new RateLimiter({ windowMs: 60 * 1000, maxRequests: 5 }),
   isProduction = process.env.NODE_ENV === 'production',
   log = logger,
@@ -276,7 +312,123 @@ export function createApiServer({
     const urlObj = new URL(req.url || '/', 'http://localhost');
     const pathname = urlObj.pathname.replace(/\/+$/, '') || '/';
 
-    // Static frontend assets routing
+    // --- 1. WhatsApp Cloud API Webhooks (PRIORITIZED BEFORE STATIC / SPA CATCH-ALL) ---
+    // Handles /api/webhooks/whatsapp, /webhooks/whatsapp, /api/webhook/whatsapp, /webhook/whatsapp
+    const isWhatsAppWebhook =
+      pathname === '/api/webhooks/whatsapp' ||
+      pathname === '/webhooks/whatsapp' ||
+      pathname === '/api/webhook/whatsapp' ||
+      pathname === '/webhook/whatsapp';
+
+    if (isWhatsAppWebhook) {
+      if (method === 'GET' || method === 'HEAD') {
+        if (!whatsappWebhookHandler) {
+          res.writeHead(501, {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Cache-Control': 'no-store',
+          });
+          return res.end('WhatsApp integration is not configured on this server.');
+        }
+
+        const mode =
+          urlObj.searchParams.get('hub.mode') ||
+          urlObj.searchParams.get('mode') ||
+          urlObj.searchParams.get('hub[mode]');
+        const token =
+          urlObj.searchParams.get('hub.verify_token') ||
+          urlObj.searchParams.get('verify_token') ||
+          urlObj.searchParams.get('hub[verify_token]');
+        const challenge =
+          urlObj.searchParams.get('hub.challenge') ||
+          urlObj.searchParams.get('challenge') ||
+          urlObj.searchParams.get('hub[challenge]');
+
+        log.info(
+          {
+            method,
+            pathname,
+            hasMode: Boolean(mode),
+            hasToken: Boolean(token),
+            hasChallenge: Boolean(challenge),
+            userAgent: req.headers['user-agent'] || 'unknown',
+          },
+          'Incoming Meta WhatsApp webhook verification request'
+        );
+
+        const verification = whatsappWebhookHandler.verifyChallenge({
+          mode,
+          token,
+          challenge,
+        });
+
+        if (verification.valid) {
+          const challengeStr = String(verification.challenge || '');
+          res.writeHead(200, {
+            'Content-Type': 'text/plain; charset=utf-8',
+            'Content-Length': Buffer.byteLength(challengeStr, 'utf-8'),
+            'Cache-Control': 'no-cache, no-store, must-revalidate',
+          });
+          if (method === 'HEAD') {
+            return res.end();
+          }
+          return res.end(challengeStr);
+        }
+
+        const forbiddenMsg = 'Forbidden: Invalid verification token';
+        res.writeHead(403, {
+          'Content-Type': 'text/plain; charset=utf-8',
+          'Content-Length': Buffer.byteLength(forbiddenMsg, 'utf-8'),
+          'Cache-Control': 'no-store',
+        });
+        if (method === 'HEAD') {
+          return res.end();
+        }
+        return res.end(forbiddenMsg);
+      }
+
+      if (method === 'POST') {
+        if (!whatsappWebhookHandler) {
+          return sendJson(res, 501, {
+            error: 'WHATSAPP_NOT_CONFIGURED',
+            message: 'WhatsApp integration is not configured on this server.',
+          });
+        }
+
+        const rawBody = await readRawBody(req);
+        const signatureHeader = req.headers['x-hub-signature-256'];
+
+        if (!whatsappWebhookHandler.verifySignature(rawBody, signatureHeader)) {
+          return sendJson(res, 401, {
+            error: 'INVALID_SIGNATURE',
+            message: 'WhatsApp webhook signature verification failed.',
+          });
+        }
+
+        let payload = {};
+        if (rawBody.length > 0) {
+          try {
+            payload = JSON.parse(rawBody.toString('utf-8'));
+          } catch {
+            return sendJson(res, 400, {
+              error: 'INVALID_JSON',
+              message: 'Failed to parse webhook JSON payload.',
+            });
+          }
+        }
+
+        // Meta requires quick 200 OK acknowledgment to prevent retries
+        sendJson(res, 200, { status: 'ok' });
+
+        // Process incoming events asynchronously
+        whatsappWebhookHandler.handleWebhookPayload(payload).catch((err) => {
+          log.error({ err }, 'Unhandled error inside WhatsApp handleWebhookPayload');
+        });
+
+        return;
+      }
+    }
+
+    // --- 2. Static frontend assets routing ---
     if (!pathname.startsWith('/api/') && pathname !== '/api' && (method === 'GET' || method === 'HEAD')) {
       if (serveStaticFile(req, res, pathname)) {
         return;

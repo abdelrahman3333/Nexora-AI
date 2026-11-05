@@ -82,6 +82,13 @@ const envSchema = z.object({
     .int()
     .min(60000)
     .default(24 * 60 * 60 * 1000),
+
+  // Official Meta WhatsApp Cloud API Configuration (Optional)
+  WHATSAPP_ACCESS_TOKEN: z.string().trim().optional().default(''),
+  WHATSAPP_PHONE_NUMBER_ID: z.string().trim().optional().default(''),
+  WHATSAPP_BUSINESS_ACCOUNT_ID: z.string().trim().optional().default(''),
+  WHATSAPP_VERIFY_TOKEN: z.string().trim().optional().default(''),
+  META_APP_SECRET: z.string().trim().optional().default(''),
 });
 
 /**

@@ -333,6 +333,37 @@ export class SupportService {
   }
 
   /**
+   * Convenience alias for handleIncomingMessage returning the reply text string directly.
+   *
+   * @param {object} params
+   * @param {string} [params.businessId]
+   * @param {string} [params.tenantId]
+   * @param {string} [params.botId='default']
+   * @param {string} [params.platform='telegram']
+   * @param {string} params.userId
+   * @param {string} params.message
+   * @returns {Promise<string>}
+   */
+  async generateResponse({
+    businessId,
+    tenantId,
+    botId = 'default',
+    platform = 'telegram',
+    userId,
+    message,
+  }) {
+    const res = await this.handleIncomingMessage({
+      businessId,
+      tenantId,
+      botId,
+      platform,
+      userId,
+      text: message,
+    });
+    return res.text;
+  }
+
+  /**
    * Resets a customer's conversation history for a specific business and bot.
    *
    * @param {object} params
